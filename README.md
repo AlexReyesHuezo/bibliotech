@@ -28,11 +28,15 @@ classDiagram
   Biblioteca: #string direccion
   Biblioteca: #string telefono
   Biblioteca: #string horario
-  Biblioteca: +getNombre()
-  Biblioteca: +getDireccion()
-  Biblioteca: +getTelefono()
-  Biblioteca: +getHorario()
-  Biblioteca: +getHorarioFinde()
+  Biblioteca: +obtenerNombre()
+  Biblioteca: +obtenerDireccion()
+  Biblioteca: +obtenerTelefono()
+  Biblioteca: +obtenerHorario()
+  Biblioteca: +obtenerHorarioFinde()
+  Biblioteca: +agregarLibro(libro)
+  Biblioteca: +obtenerLibros()
+  Biblioteca: +eliminarLibro(titulo)
+  Biblioteca: +prestarLibro(titulo)
 
   class Libro
   Libro: #string titulo
@@ -40,15 +44,15 @@ classDiagram
   Libro: #string descripcion
   Libro: #string categoria
   Libro: #bool disponibilidad
-  Libro: +setTitulo(titulo)
-  Libro: +getTitulo()
-  Libro: +setDescripcion(descripcion)
-  Libro: +getDescripcion()
-  Libro: +setCategoria(categoria)
-  Libro: +getCategoria()
-  Libro: +setDisponibilidad(disponibilidad)
-  Libro: +getDisponibilidad()
-  Libro: +prestar(titulo)
+  Libro: +ponerTitulo(titulo)
+  Libro: +obtenerTitulo()
+  Libro: +ponerNombreAutor()
+  Libro: +ponerDescripcion(descripcion)
+  Libro: +obtenerDescripcion()
+  Libro: +ponerCategoria(categoria)
+  Libro: +obtenerCategoria()
+  Libro: +ponerDisponibilidad(disponibilidad)
+  Libro: +obtenerDisponibilidad()
 
   class Cliente
   Cliente <|-- Usuario
@@ -56,17 +60,18 @@ classDiagram
   Cliente: #int id
   Cliente: #string nombre
   Cliente: #string apellido
-  Cliente: +setNombreCompleto(nombre, apellido)
-  Cliente: +getNombreCompleto()
+  Cliente: +obtenerId()
+  Cliente: +ponerNombreCompleto(nombre, apellido)
+  Cliente: +obtenerNombreCompleto()
 
   class Autor
   Autor: #string nacionalidad
   Autor: #string fechaNacimiento
-  Autor: +getNacionalidad()
-  Autor: +getFechaNacimiento()
+  Autor: +obtenerNacionalidad()
+  Autor: +obtenerFechaNacimiento()
+  Autor: +agregarLibroEscrito(libro)
+  Autor: +obtenerLibrosEscritos()
 
   class Usuario
-  Usuario: +buscarLibroPorTitulo(titulo)
-  Usuario: +buscarLibroPorAutor(nombreCompleto)
-  Usuario: +buscarLibroPorCategoria(categoria)
+  Usuario: +buscarLibro(titulo, autor, categoria)
 ```
