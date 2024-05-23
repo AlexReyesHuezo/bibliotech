@@ -22,6 +22,8 @@ Bibliotech
 
 classDiagram
   class Biblioteca
+  Biblioteca *-- Libro
+  Biblioteca *-- Cliente
   Biblioteca: #string nombre
   Biblioteca: #string direccion
   Biblioteca: #string telefono
@@ -48,6 +50,15 @@ classDiagram
   Libro: +getDisponibilidad()
   Libro: +prestar(titulo)
 
+  class Cliente
+  Cliente <|-- Usuario
+  Cliente <|-- Autor
+  Cliente: #int id
+  Cliente: #string nombre
+  Cliente: #string apellido
+  Cliente: +setNombreCompleto(nombre, apellido)
+  Cliente: +getNombreCompleto()
+
   class Autor
   Autor: #string nacionalidad
   Autor: #string fechaNacimiento
@@ -58,13 +69,4 @@ classDiagram
   Usuario: +buscarLibroPorTitulo(titulo)
   Usuario: +buscarLibroPorAutor(nombreCompleto)
   Usuario: +buscarLibroPorCategoria(categoria)
-
-  class Cliente
-  Usuario --|> Cliente
-  Autor --|> Cliente
-  Cliente: #int id
-  Cliente: #string nombre
-  Cliente: #string apellido
-  Cliente: +setNombreCompleto(nombre, apellido)
-  Cliente: +getNombreCompleto()
 ```
